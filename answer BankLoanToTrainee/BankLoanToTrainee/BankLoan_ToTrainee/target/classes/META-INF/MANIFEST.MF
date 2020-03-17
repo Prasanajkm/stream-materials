@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: BankLoan_ToTrainee
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: harpreet.dhillon01
+Implementation-Vendor-Id: com.infy
+Build-Jdk: 1.8.0_202
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/BankLoan_ToTrainee
+Created-By: Maven Integration for Eclipse
+
