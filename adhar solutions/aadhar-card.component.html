@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-5 offset-md-4">
+    <div class="card ">
+      <div class="card-header bg-primary">Change aadhar details</div>
+      <div class="card-body">
+      <!-- Below is a reactive form with formGroup and formControl, 
+               "getAadharForm" is name of the formGroup defined in AadharCardComponent
+               , upon submission getAadhar() method should be called which
+               is  defined in AadharCard Component class -->
+        <form class="form" [formGroup]="getAadharForm" (ngSubmit)="getAadhar()">
+          <div class="form-group">
+            <label for="aadharNumber">Aadhar number:</label>
+            <input type="text" id="aadharNumber" class="form-control" formControlName="aadharNumber">
+            <span id="aadharNumberError" class="text-danger" *ngIf="getAadharForm.get('aadharNumber').hasError('pattern')">Should
+              be 12 digit number
+            </span>
+          </div>
+          <button class="btn btn-primary" [disabled]="getAadharForm.invalid">Get Details</button>
+        </form>
+
+        <div *ngIf="myAadhar">
+          <div>Aadhar Number:{{myAadhar.aadharNumber | aadharNumber}}</div>
+          <div>Name:{{myAadhar.name}}</div>
+          <div>Address:{{myAadhar.address}}</div>
+          <!-- Below is a reactive form with formGroup and formControl, 
+               "updatePhoneNumberForm" is name of the formGroup defined in AadharCardComponent
+               , upon submission updatePhoneNumber() method should be called which
+               is  defined in AadharCard Component class -->
+          <form [formGroup]="updatePhoneNumberForm" (ngSubmit)="updatePhoneNumber()">
+            <div class="form-group">
+              <label for="phoneNumber">Phone number:</label>
+              <input type="number" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+              <span id="phoneNumberError" class="text-danger" *ngIf="updatePhoneNumberForm.get('phoneNumber').invalid &&updatePhoneNumberForm.get('phoneNumber').dirty ">
+                Phone number is invalid
+              </span>
+            </div>
+            <button [disabled]="updatePhoneNumberForm.invalid"class="btn btn-primary">Update Phone</button>
+          </form>
+        </div>
+
+        <div *ngIf="errorMessage!=null">
+          <span class="text-danger">{{errorMessage}}</span>
+        </div>
+        <div *ngIf="successMessage!=null">
+          <span class="text-success">{{successMessage}}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
